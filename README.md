@@ -1,6 +1,6 @@
 
 # CMake-SFML-Template
-This repository is a template for SFML projects using CMake and C++. It also includes a Python script to create an embedded resource header.
+This repository is a template for SFML projects using CMake and C++.
 
 ## Installation Instructions
 
