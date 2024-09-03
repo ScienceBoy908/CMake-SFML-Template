@@ -16,13 +16,11 @@ FetchContent_MakeAvailable(SFML)
 set(RESOURCE_DIR ${CMAKE_SOURCE_DIR}/res)
 set(GENERATED_HEADER ${CMAKE_BINARY_DIR}/embedded_resources.hpp)
 
-find_program(Python3_EXECUTABLE python3 REQUIRED)
-
 add_custom_command(
     PRE_BUILD
     OUTPUT ${GENERATED_HEADER}
-    COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/scripts/generate_header.py ${RESOURCE_DIR} ${GENERATED_HEADER}
-    DEPENDS ${RESOURCE_DIR} ${CMAKE_SOURCE_DIR}/scripts/generate_header.py
+    COMMAND ${CMAKE_SOURCE_DIR}/scripts/generate_header.exe ${RESOURCE_DIR} ${GENERATED_HEADER}
+    DEPENDS ${RESOURCE_DIR} ${CMAKE_SOURCE_DIR}/scripts/generate_header.exe
     COMMENT "Compressing resources and generating header from resource directory"
 )
 
