@@ -1,12 +1,21 @@
+
 # CMake-SFML-Template
-My first real contribution to GitHub. This is basically a template for SFML projects using CMake and C++. It does however use Python to create an embedded resource header.
+This repository is a template for SFML projects using CMake and C++. It also includes a Python script to create an embedded resource header.
 
-## How to install
-First, clone the repo into a new folder.
+## Installation Instructions
 
-Second, change the python reference in the CMakeLists.txt uses whatever version of python works in your command prompt. Sometime's it's python, python3, or python3.12
+1. **Clone the Repository**  
+   Begin by cloning this repository into a new folder on your local machine.
 
-Third, create a build folder and run "cmake .." from within it using the command prompt. If it says that it couldn't find python then check step 2 or just download python.
+2. **Configure Python Version**  
+   Update the Python reference in the `CMakeLists.txt` file to match the Python version available in your command prompt. This could be `python`, `python3`, or a specific version like `python3.12`.
 
+3. **Generate Build Files**  
+   Create a `build` folder within the project directory. Open a command prompt, navigate to this folder, and run:
+   ```
+   cmake ..
+   ```
+   If you encounter an error about Python not being found, revisit step 2 or ensure that Python is installed on your system.
 
-:/
+4. **Visual Studio Setup** (if using Visual Studio)  
+   After opening the project in Visual Studio, right-click the main project in the Solution Explorer and select "Set as Startup Project".
