@@ -19,8 +19,8 @@ set(GENERATED_HEADER ${CMAKE_BINARY_DIR}/embedded_resources.hpp)
 add_custom_command(
     PRE_BUILD
     OUTPUT ${GENERATED_HEADER}
-    COMMAND ${CMAKE_SOURCE_DIR}/scripts/generate_header.exe ${RESOURCE_DIR} ${GENERATED_HEADER}
-    DEPENDS ${RESOURCE_DIR} ${CMAKE_SOURCE_DIR}/scripts/generate_header.exe
+    COMMAND ${CMAKE_SOURCE_DIR}/generate_header.exe ${RESOURCE_DIR} ${GENERATED_HEADER}
+    DEPENDS ${RESOURCE_DIR} ${CMAKE_SOURCE_DIR}/generate_header.exe
     COMMENT "Compressing resources and generating header from resource directory"
 )
 
