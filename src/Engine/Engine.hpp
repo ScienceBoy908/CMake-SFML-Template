@@ -2,10 +2,9 @@
 #include <vector>
 #include <filesystem>
 #include <algorithm>
-using std::string;
-#include <SFML/Graphics.hpp>
 
-#include "SFMath/sfMath.hpp"
-#include "EventHandler/events.hpp"
-#include "ResourceHandler/resource_handler.hpp"
-#include "GraphicsHelper/GraphicsHelper.hpp"
+#include <SFML/Graphics.hpp>
+#include "Engine/SFMath/sfMath.hpp"
+#include "Engine/EventHandler/events.hpp"
+#include "Engine/ResourceHandler/resource_handler.hpp"
+#include "Engine/GraphicsHelper/GraphicsHelper.hpp"
