@@ -1,4 +1,6 @@
-#include "Engine.hpp"
+#include "Engine/Engine.hpp"
+
+using std::string;
 using namespace sfMath;
 using namespace GraphicsHelper;
 
