@@ -8,3 +8,4 @@ using std::string;
 #include "SFMath/sfMath.hpp"
 #include "EventHandler/events.hpp"
 #include "ResourceHandler/resource_handler.hpp"
+#include "GraphicsHelper/GraphicsHelper.hpp"
