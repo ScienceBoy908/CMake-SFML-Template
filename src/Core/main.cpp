@@ -1,5 +1,6 @@
 #include "Engine.hpp"
 using namespace sfMath;
+using namespace GraphicsHelper;
 
 int main()
 {
@@ -14,7 +15,7 @@ int main()
     Events::EventHandler eventHandler({ 800,800 }, true, "HI! My name is.. What?! My name is- WHO?!");
     auto& window = eventHandler.window;
 
-    /****************************************************/
+    /**********************Game SETUP******************************/
     
     // Create a background color
     sf::Color backgroundColor = sf::Color::Black;
@@ -29,10 +30,11 @@ int main()
 
     // Create a label
     FontResource arial = GetFont("arial.ttf");
-    sf::Text textLabel("Gearod the Frog ®", arial.font);
+    sf::Text textLabel("Gearod the Frog Â®", arial.font);
     textLabel.setCharacterSize(30u);
 
-
+    //Create a line from the frog to the mouse
+    ThickLine line_mouse(2u, 5.f);
 
     // Begin game loop
     while (window.isOpen())
@@ -62,6 +64,13 @@ int main()
         // Set the text to the frog's position
         textLabel.setPosition(spr_Gearod.getPosition() - sf::Vector2f(0,150));
 
+        line_mouse[0].vertex.position = spr_Gearod.getPosition();
+        line_mouse[1].vertex.position = mousePosition;
+
+        sf::Vector2f gearod_mouse_vec = mousePosition - spr_Gearod.getPosition();
+        float thickness = std::max((1.f - (GetVectorLength(gearod_mouse_vec) / 500.f)) * 25.f, 0.1f);
+        line_mouse.setThickness(thickness);
+
         // Change the origin
         CenterAlignText(textLabel);
 
@@ -72,6 +81,8 @@ int main()
         window.draw(spr_Gearod); // draw the frog
 
         window.draw(textLabel); // draw text
+
+        window.draw(line_mouse); // draw a line
 
         window.display();
     }
