@@ -14,3 +14,6 @@ This repository is a template for SFML projects using CMake and C++.
    ```
 4. **Visual Studio Setup** (if using Visual Studio)  
    After opening the project in Visual Studio, right-click the main project in the Solution Explorer and select "Set as Startup Project".
+
+## Notes:
+   If you add header or source (hpp/cpp) files to your project, you should rebuild it using the instructions in step 3.
