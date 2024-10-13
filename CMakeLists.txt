@@ -37,15 +37,33 @@ add_custom_target(GenerateResourceHeader ALL DEPENDS ${GENERATED_HEADER})
 
 include_directories(${CMAKE_SOURCE_DIR}/external/miniz)
 
-# Find all .cpp files in the src directory 
-file(GLOB_RECURSE SOURCES "src/*.cpp")
+# Gather all source and header files from the src directory
+file(GLOB_RECURSE ALL_FILES "${CMAKE_SOURCE_DIR}/src/*")
 
-# Add the executable and link the source files
-add_executable(main ${SOURCES})
+# Add these files to the executable
+add_executable(main ${ALL_FILES})
+
+# Function to create a single filter that includes both sources and headers
+function(create_source_group FILES BASE_DIR)
+    foreach(FILE ${FILES})
+        # Get the directory path relative to the base directory (CMAKE_SOURCE_DIR/src)
+        get_filename_component(FILE_PATH "${FILE}" PATH)
+        file(RELATIVE_PATH REL_PATH "${BASE_DIR}" "${FILE_PATH}")
+
+        # Replace "/" with "\\" to create proper Visual Studio filters
+        string(REPLACE "/" "\\" FILTER_GROUP "${REL_PATH}")
+
+        # Create the source group (same filter for all files)
+        source_group("${FILTER_GROUP}" FILES "${FILE}")
+    endforeach()
+endfunction()
+
+# Call the function for all files (both sources and headers)
+create_source_group("${ALL_FILES}" "${CMAKE_SOURCE_DIR}/src")
 
 add_dependencies(main GenerateResourceHeader)
 target_include_directories(main PRIVATE ${CMAKE_BINARY_DIR})
-target_include_directories(main PRIVATE ${CMAKE_SOURCE_DIR}/src/Engine)
+target_include_directories(main PRIVATE ${CMAKE_SOURCE_DIR}/src)
 
 target_link_libraries(main PRIVATE sfml-graphics box2d)
 target_compile_features(main PRIVATE cxx_std_17)
