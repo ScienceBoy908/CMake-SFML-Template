@@ -1,5 +1,5 @@
 #include "GraphicsHelper.hpp"
-#include "SFMath/sfMath.hpp"
+#include "Engine/SFMath/sfMath.hpp"
 using namespace sfMath;
 
 namespace GraphicsHelper
