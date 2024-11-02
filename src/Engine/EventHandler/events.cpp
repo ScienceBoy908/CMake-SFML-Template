@@ -1,4 +1,4 @@
-#include "EventHandler/events.hpp"
+#include "Engine/EventHandler/events.hpp"
 
 Events::EventHandler::EventHandler(sf::Vector2u windowSizeU, bool fullscreen, std::string windowName)
     : window({ windowSizeU.x, windowSizeU.y }, windowName, (fullscreen ? sf::Style::Fullscreen : sf::Style::Default)),
